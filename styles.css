@@ -135,20 +135,13 @@ h1 em { color: #875a16; font-weight: 500; }
 .button-primary:hover { background: #27342f; }
 .text-link { font-size: 0.9rem; font-weight: 650; }
 .hero-aside { align-self: end; padding-bottom: 1rem; }
-.hero-mark {
-  display: grid;
-  border-top: 1px solid var(--line);
+.hero-portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--line);
 }
-.hero-mark span {
-  display: block;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--line);
-  font-family: var(--serif);
-  font-size: clamp(1.7rem, 3vw, 2.8rem);
-  line-height: 1;
-}
-.hero-mark span:nth-child(2) { padding-left: 12%; color: #875a16; }
-.hero-mark span:nth-child(3) { padding-left: 24%; }
 .focus-copy { margin: 1.4rem 0 0 clamp(0rem, 3vw, 2rem); padding-top: 1rem; border-top: 2px solid var(--accent); }
 .aside-label { margin: 0 0 0.35rem; color: #875a16; font-size: 0.72rem; font-weight: 750; text-transform: uppercase; letter-spacing: 0.12em; }
 .hero-aside p:last-child { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
@@ -281,7 +274,6 @@ footer a { justify-self: end; }
   h1 { font-size: clamp(3rem, 15vw, 4.4rem); }
   .hero-actions { align-items: flex-start; flex-direction: column; }
   .hero-aside { grid-template-columns: 1fr; gap: 1.5rem; }
-  .hero-mark span { font-size: 2rem; }
   .focus-copy { margin-left: 0; }
   .project-visual { min-height: 330px; }
   .project-row { grid-template-columns: 1fr auto; gap: 1rem; }
