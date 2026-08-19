@@ -1,0 +1,6 @@
+{
+  "runners": ["axe"],
+  "chromeLaunchConfig": {
+    "args": ["--no-sandbox"]
+  }
+}
