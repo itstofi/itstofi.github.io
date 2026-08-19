@@ -1,0 +1,28 @@
+name: Quality
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate HTML
+        run: npx --yes html-validate@11.8.0 index.html 404.html
+      - name: Verify required assets
+        run: |
+          test -f styles.css
+          test -f script.js
+          test -f assets/favicon.svg
+          test -f assets/social-preview.png
+          test -f assets/private-rag-workspaces.png
+          test -f assets/private-rag-documents.png
