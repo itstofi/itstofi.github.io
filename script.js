@@ -12,21 +12,22 @@ updateHeader();
 const views = {
   chat: {
     src: 'assets/private-rag-workspaces.png',
-    alt: 'PrivateRAG AI workspace interface showing local status and indexed documents',
+    alt: 'PrivateRAG AI Chat screen with workspace and local model selectors',
     label: 'Show document view',
   },
   documents: {
     src: 'assets/private-rag-documents.png',
-    alt: 'PrivateRAG AI document management interface showing five locally indexed sample files',
+    alt: 'PrivateRAG AI document management screen with locally indexed sample files',
     label: 'Show chat view',
   },
 };
 
 toggle?.addEventListener('click', () => {
-  const showingDocuments = toggle.getAttribute('aria-pressed') === 'true';
-  const next = showingDocuments ? views.chat : views.documents;
+  const showingDocuments = toggle.dataset.view === 'documents';
+  const nextView = showingDocuments ? 'chat' : 'documents';
+  const next = views[nextView];
   projectImage.src = next.src;
   projectImage.alt = next.alt;
   toggle.textContent = next.label;
-  toggle.setAttribute('aria-pressed', String(!showingDocuments));
+  toggle.dataset.view = nextView;
 });

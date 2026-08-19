@@ -26,7 +26,11 @@ body {
 img { display: block; max-width: 100%; }
 a { color: inherit; text-underline-offset: 0.22em; }
 button, a { -webkit-tap-highlight-color: transparent; }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+:focus-visible {
+  outline: 3px solid #6b4512;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--paper);
+}
 
 .skip-link {
   position: fixed;

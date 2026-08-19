@@ -18,10 +18,22 @@ jobs:
           node-version: "22"
       - name: Validate HTML
         run: npx --yes html-validate@11.8.0 index.html 404.html
+      - name: Validate JavaScript syntax
+        run: node --check script.js
+      - name: Validate references, metadata, images, and XML
+        run: python3 scripts/validate_site.py
+      - name: Run accessibility checks
+        run: |
+          python3 -m http.server 8080 >/tmp/portfolio-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID' EXIT
+          npx --yes pa11y@9.0.1 --runner axe http://127.0.0.1:8080/
+          npx --yes pa11y@9.0.1 --runner axe http://127.0.0.1:8080/404.html
       - name: Verify required assets
         run: |
           test -f styles.css
           test -f script.js
+          test -f scripts/validate_site.py
           test -f assets/favicon.svg
           test -f assets/social-preview.png
           test -f assets/private-rag-workspaces.png
