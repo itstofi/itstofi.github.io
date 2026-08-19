@@ -225,6 +225,10 @@ h2 { font-size: clamp(2.7rem, 5vw, 5rem); }
 .about-copy { max-width: 680px; font-size: clamp(1.05rem, 1.5vw, 1.25rem); }
 .about-copy p { margin-top: 0; }
 .about-copy p + p { color: var(--ink-soft); }
+.profile-details { margin: 2.5rem 0 0; border-top: 1px solid var(--line); font-size: 0.92rem; }
+.profile-details > div { display: grid; grid-template-columns: 0.45fr 1.55fr; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.profile-details dt { color: #875a16; font-size: 0.7rem; font-weight: 750; letter-spacing: 0.1em; text-transform: uppercase; }
+.profile-details dd { margin: 0; color: var(--ink-soft); }
 .about-links { display: flex; gap: 1.5rem; margin-top: 2rem; font-size: 0.9rem; font-weight: 700; }
 
 footer {
@@ -279,6 +283,7 @@ footer a { justify-self: end; }
   .project-row { grid-template-columns: 1fr auto; gap: 1rem; }
   .project-row .project-index, .project-row .stack { grid-column: 1 / -1; }
   .project-row > div { grid-column: 1 / -1; }
+  .profile-details > div { grid-template-columns: 1fr; gap: 0.4rem; }
   footer { grid-template-columns: 1fr auto; }
   footer p:nth-child(2) { display: none; }
 }
